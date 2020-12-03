@@ -14,43 +14,42 @@
 
     <script>
       const url =
-        'https://images.pexels.com/photos/974470/nature-stars-milky-way-galaxy-974470.jpeg?q=100';
-      const img = document.getElementById('huge-image');
-      const loadButton = document.getElementById('load');
-      const stopButton = document.getElementById('stop');
+        "https://images.pexels.com/photos/974470/nature-stars-milky-way-galaxy-974470.jpeg?q=100";
+      const img = document.getElementById("huge-image");
+      const loadButton = document.getElementById("load");
+      const stopButton = document.getElementById("stop");
       let controller;
 
       function startLoading() {
         loadButton.disabled = true;
-        loadButton.innerText = 'Loading...';
+        loadButton.innerText = "Loading...";
         stopButton.disabled = false;
       }
 
       function stopLoading() {
         loadButton.disabled = false;
-        loadButton.innerText = 'Load HUGE Image';
+        loadButton.innerText = "Load HUGE Image";
         stopButton.disabled = true;
       }
 
-      loadButton.onclick = async function() {
+      loadButton.onclick = async function () {
         startLoading();
 
-        controller = new AbortController();
+        controller = new AbortController(); //Tremos la función para cancelar la petición
 
         try {
-          const response = await fetch(url, { signal: controller.signal });
-          const blob = await response.blob();
-          const imgUrl = URL.createObjectURL(blob);
+          const response = await fetch(url, { signal: controller.signal }); //Recibe el estado la petición
+          const blob = await response.blob(); //Tremos los datos binarios de la petición
+          const imgUrl = URL.createObjectURL(blob); //Función que sirve para obtener la url de la imagen en este caso del Binario (blob)
           img.src = imgUrl;
         } catch (error) {
-          console.log(error.message);
+          console.log(error);
         }
-
         stopLoading();
       };
 
-      stopButton.onclick = function() {
-        controller.abort();
+      stopButton.onclick = function () {
+        controller.abort(); //Cancelo la petición en caso de presionar el botón
         stopLoading();
       };
     </script>
