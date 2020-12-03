@@ -21,9 +21,9 @@
       // Ejemplos de levenshtein distance (usa window.Levenshtein)
 
       const target = {
-        red: 'Rojo',
-        green: 'Verde',
-        blue: 'Azul',
+        red: "Rojo",
+        green: "Verde",
+        blue: "Azul",
       };
 
       const handler = {
@@ -32,7 +32,7 @@
             return obj[prop];
           }
 
-          const suggestion = Object.keys(obj).find(key => {
+          const suggestion = Object.keys(obj).find((key) => {
             return Levenshtein.get(key, prop) <= 3;
           });
 
