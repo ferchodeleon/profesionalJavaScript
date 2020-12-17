@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>this</title>
+  </head>
+
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <h1>
+      <code>this</code> se refiere a un objeto. Ese objeto es el que actualmente
+      está ejecutando un pedazo de código.
+    </h1>
+
+    <script>
+      //**** this en el scope global ****//
+      console.log(`this es: ${this}`);
+
+      //this en el caso de una función
+      function whoThis() {
+        return this;
+      }
+
+      console.log(`This en una function: ${whoThis()}`);
+
+      //This utilizando use strict.
+
+      function whoThisStrict() {
+        'use strict';
+        return this;
+      }
+
+      console.log(`This con strict: ${whoThisStrict()}`);
+
+      //** This en el caso de ser un objeto **//
+
+      const person = {
+        name: 'Fernando',
+        saludar: function() {
+          console.log(`Hola me llamo ${this.name}`);
+        }
+      }
+
+      person.saludar();
+
+      //** This en el caso de ser una clase **//
+
+      function Person (name) {
+        this.name = name;
+      }
+
+      //Al crear una instancia, siempre voy a necesitar de prototype
+      Person.prototype.saludar = function() {
+        console.log(`Me llamo ${this.name}`);
+      }
+
+      const angela = new Person('Angela');
+
+      //Al llamar la function de la instancia necesita de ; al final.
+      angela.saludar();
+
+    </script>
+  </body>
+</html>

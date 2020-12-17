@@ -1,0 +1,17 @@
+{
+  "name": "platzi-media-player",
+  "version": "1.0.0",
+  "description": "Proyecto del curso profesional de JavaScript",
+  "license": "MIT",
+  "author": "Fernando De León Gil <fernando.deleon@outlook.com>",
+  "main": "index.js",
+  "keywords": [
+    "platzi"
+  ],
+  "scripts": {
+    "start": "live-server"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Closures</title>
+  </head>
+
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+      //Closures
+
+      //IIFE
+      (function(){
+        let color = 'green';
+        function printColor() {
+          console.log(color);
+        }
+
+        printColor();
+      })();
+
+      //funciones que regresan funciones
+      function makeColorPrinter(color) {
+        let colorMessage = `The color is ${color}`;
+
+        return function() {
+          console.log(colorMessage);
+        }
+      }
+
+      let greenColorPrinter = makeColorPrinter("green");
+
+      console.log(greenColorPrinter());
+
+      //Crear un objeto privado por medio de closure
+      function makeCounter( n ) {
+        //Creamos una variable privada
+        let count = n;
+
+        //De esta forma vamos a retornar un objeto, que en el objeto tenemos funciones
+        return {
+          increase: function(){
+            count = count + 1;
+          },
+          decrease: function(){
+            count = count - 1;
+          },
+          getCount: function(){
+            return count;
+          }
+        }
+      }
+
+      let counter = makeCounter(8);
+
+      console.log('El valor de count es:' ,counter.getCount());
+      counter.increase();
+      counter.increase();
+      counter.increase();
+      counter.decrease();
+      console.log('El valor de count es:' ,counter.getCount());
+    </script>
+  </body>
+</html>
