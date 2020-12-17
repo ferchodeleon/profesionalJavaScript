@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "Proyecto del Curso Profesional de JavaScript de la Escuela de JavaScript de Platzi.",
   "license": "MIT",
+<<<<<<< HEAD
   "author": "Richard B. Kaufman López <richardbkaufman@gmail.com>",
+=======
+  "author": "César Augusto Barco <augustopayza@gmail.com>",
+>>>>>>> ef7cf52e725ee4f64647449ea8673fd8bf91fbe6
   "keywords": [
     "platzi"
   ],
   "scripts": {
+<<<<<<< HEAD
     "start": "parcel index.html ejercicios/index.html ejercicios/**/*.html"
   },
   "devDependencies": {
@@ -20,4 +25,12 @@
   "dependencies": {
     "@sparragus/platzimediaplayer": "^1.0.0"
   }
+=======
+    "start": "live-server"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "main": "sw.js"
+>>>>>>> ef7cf52e725ee4f64647449ea8673fd8bf91fbe6
 }
