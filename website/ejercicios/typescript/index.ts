@@ -81,3 +81,19 @@ function optionParamsDefault(firstName: string, lastName: string = 'Apellido'): 
 const addOptionParamsDefault = optionParamsDefault('Fernando');
 
 console.log(addOptionParamsDefault);
+
+interface Rectangulo {
+  ancho: number,
+  alto: number,
+}
+
+let rect: Rectangulo = {
+  ancho: 4,
+  alto: 5
+}
+
+function areaRect(r: Rectangulo): number {
+  return r.alto * r.ancho;
+}
+
+console.log(areaRect(rect));

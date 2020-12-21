@@ -46,20 +46,12 @@
         // try {
         //   const popularMovies = await getPopularMovies();
         // } catch (error) {
-<<<<<<< HEAD
         //   console.log(error.message);
-=======
-        //   console.log(error.message)
->>>>>>> ef7cf52e725ee4f64647449ea8673fd8bf91fbe6
         // }
 
         const popularMovies = await getPopularMovies();
         const ids = popularMovies.slice(0, n).map(movie => movie.id);
         return ids;
-<<<<<<< HEAD
-
-=======
->>>>>>> ef7cf52e725ee4f64647449ea8673fd8bf91fbe6
       }
 
       function renderMovies(movies) {
