@@ -2,12 +2,12 @@ class Singleton {
   private static instance: Singleton;
 
   private constructor() {
-    // init
+    // va inicialización
   }
 
   static getInstance() {
     if (!Singleton.instance) {
-      Singleton.instance = new Singleton();
+      Singleton.instance = new Singleton;
     }
 
     return Singleton.instance;
