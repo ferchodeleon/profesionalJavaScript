@@ -1,32 +1,32 @@
-interface Observer {
-  update: (data: any) => void;
+interface Observer { //Reciben actualizaciones de la información
+  update: (data: any) => void //Va ser una actualización la cual recibe datos y son de tipo cualquiera
 }
 
 interface Subject {
-  subscribe: (observer: Observer) => void;
-  unsubscribe: (observer: Observer) => void;
+  subcribe: (observer: Observer) => void //Con VOID definimos que el tipo es undefine
+  unsubcribe: (observer: Observer) => void
 }
 
 class BitcoinPrice implements Subject {
   observers: Observer[] = [];
 
   constructor() {
-    const el: HTMLInputElement = document.querySelector('#value');
+    const el: HTMLInputElement = document.querySelector("#value");
     el.addEventListener('input', () => {
       this.notify(el.value);
     });
   }
 
-  subscribe(observer: Observer) {
+  subcribe (observer: Observer) {
     this.observers.push(observer);
   }
 
-  unsubscribe(observer: Observer) {
+  unsubcribe(observer: Observer) {
     const index = this.observers.findIndex(obs => {
-      return obs === observer;
-    });
+      return obs === observer
+    })
 
-    this.observers.splice(index, 1);
+    this.observers.splice(index, 1); //Funcion de listas de arreglos donde indicamos el indice y los elementos que queremos sacar.
   }
 
   notify(data: any) {
@@ -37,11 +37,11 @@ class BitcoinPrice implements Subject {
 class PriceDisplay implements Observer {
   private el: HTMLElement;
 
-  constructor() {
-    this.el = document.querySelector('#price');
-  }
 
-  update(data: any) {
+  constructor() {
+    this.el = document.querySelector('#price')
+  }
+  update(data: any){
     this.el.innerText = data;
   }
 }
@@ -49,6 +49,8 @@ class PriceDisplay implements Observer {
 const value = new BitcoinPrice();
 const display = new PriceDisplay();
 
-value.subscribe(display);
+value.subcribe(display);
 
-setTimeout(() => value.unsubscribe(display), 5000);
+setTimeout(
+  () => value.unsubcribe(display), 5000
+)
