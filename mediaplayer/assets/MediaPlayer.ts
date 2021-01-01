@@ -1,12 +1,23 @@
 class MediaPlayer {
   media: HTMLMediaElement;
   plugins: any[];
+  container: HTMLElement;
+
+
   constructor(config) {
     this.media = config.el;
     this.plugins = config.plugins || [];
 
     this.initPlugins();
   }
+
+  initPlayer() {
+    this.container = document.createElement('div');
+    this.container.style.position = 'relative';
+    this.media.parentNode.insertBefore(this.container, this.media);
+    this.container.appendChild(this.media);
+  }
+
   private initPlugins() {
     const player = {
       play: () => this.play(),
